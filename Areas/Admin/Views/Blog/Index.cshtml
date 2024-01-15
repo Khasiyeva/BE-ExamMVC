@@ -1,0 +1,40 @@
+﻿@using BE_ExamMVC.Models;
+@model List<Blog>
+
+    <form method="post" enctype="multipart/form-data">
+    <div class="container">
+        <h3>Blogs</h3>
+    <a class="btn btn-primary" asp-action="Create" asp-controller="Blog" >Create</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach(var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>
+                    <div style="width:100px">
+                        <img width="100%" src="~/Upload/Blogs/@item.ImgUrl">
+                    </div>
+                </td>
+                <td>
+                    <a class="btn btn-secondary" asp-action="Update" asp-controller="Blog" asp-route-id="@item.Id">Update</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-controller="Blog" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+</div>
+</form>
