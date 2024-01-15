@@ -55,7 +55,7 @@ namespace BE_ExamMVC.Areas.Admin.Controllers
                 ImgUrl= createVM.ImageFile.Upload(_env.WebRootPath, @"\Upload\Blogs\")
             };
 
-            //createVM.ImgUrl = createVM.ImageFile.Upload(_env.WebRootPath, @"\Upload\Blogs\");
+           
             
 
             await _context.Blogs.AddAsync(blog);
